@@ -1,7 +1,7 @@
 from __future__ import annotations
 
+import argparse
 import json
-import sys
 from pathlib import Path
 from typing import Any
 
@@ -11,19 +11,6 @@ from mesh import find_view_spots
 def read_json(file_path: Path) -> dict[str, Any]:
     with open(file_path) as json_file:
         return json.load(json_file)
-
-
-def validate_and_parse_args() -> tuple[Path, int]:
-    """
-    Validates expected arguments and parses them
-
-    Expect a valid file path and an integer. Raise errors otherwise.
-    """
-    if len(sys.argv) < 3:
-        raise ValueError('Wrong number of arguments. Need: <file name> and <number of view spots>.')
-    path = validate_and_parse_path(sys.argv[1])
-    amount = validate_and_parse_amount(sys.argv[2])
-    return path, amount
 
 
 def validate_and_parse_path(path_str: str) -> Path:
@@ -40,11 +27,12 @@ def validate_and_parse_amount(amount: str | int) -> int:
         raise ValueError(f'"{amount}" is not a valid number.') from e
 
 
-def read_and_print_view_spots() -> None:
+def read_and_print_view_spots(path_arg: str, amount_arg: int) -> None:
     """
     Get json file and amount of view spots to show, find the view spots and print them in the required output format.
     """
-    path, amount = validate_and_parse_args()
+    path = validate_and_parse_path(path_arg)
+    amount = validate_and_parse_amount(amount_arg)
     sorted_spots = find_view_spots(read_json(path), amount)
     object_strings = [f'\t{{element_id: {element.id}, value: {element.height}}}' for element in sorted_spots]
     separator = ',\n'
@@ -78,4 +66,8 @@ def build_error_response(message: str) -> dict[str, Any]:
 
 
 if __name__ == '__main__':
-    read_and_print_view_spots()
+    parser = argparse.ArgumentParser(description='Find view spots in a mesh.')
+    parser.add_argument('path', type=str, help='Path to the mesh.json')
+    parser.add_argument('amount', type=int, help='amount of view spots to find')
+    args = parser.parse_args()
+    read_and_print_view_spots(args.path, args.amount)
