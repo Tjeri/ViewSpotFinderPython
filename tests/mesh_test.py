@@ -1,7 +1,7 @@
 from typing import Any
 from unittest import TestCase
 
-from mesh.mesh import find_view_spots
+from mesh import find_view_spots
 
 
 class MeshTestCase(TestCase):

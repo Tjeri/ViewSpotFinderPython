@@ -5,7 +5,7 @@ import sys
 from pathlib import Path
 from typing import Any
 
-from mesh.mesh import find_view_spots
+from mesh import find_view_spots
 
 
 def read_json(file_path: Path) -> dict[str, Any]:
