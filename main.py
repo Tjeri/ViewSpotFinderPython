@@ -13,21 +13,21 @@ def read_json(file_path: Path) -> dict[str, Any]:
         return json.load(json_file)
 
 
-def validate_and_parse_path(path_str: str) -> Path:
+def validate_and_parse_path(path_str: Path | str) -> Path:
     path = Path(path_str)
     if not path.exists() or not path.is_file():
         raise ValueError(f'"{path_str}" is not a valid file path')
     return path
 
 
-def validate_and_parse_amount(amount: str | int) -> int:
+def validate_and_parse_amount(amount: int | str) -> int:
     try:
         return int(amount)
     except ValueError as e:
         raise ValueError(f'"{amount}" is not a valid number.') from e
 
 
-def read_and_print_view_spots(path_arg: str, amount_arg: int) -> None:
+def read_and_print_view_spots(path_arg: Path, amount_arg: int) -> None:
     """
     Get json file and amount of view spots to show, find the view spots and print them in the required output format.
     """
@@ -66,8 +66,8 @@ def build_error_response(message: str) -> dict[str, Any]:
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='Find view spots in a mesh.')
-    parser.add_argument('path', type=str, help='Path to the mesh.json')
+    parser = argparse.ArgumentParser(add_help=False)
+    parser.add_argument('path', type=Path, help='Path to the mesh.json')
     parser.add_argument('amount', type=int, help='amount of view spots to find')
     args = parser.parse_args()
     read_and_print_view_spots(args.path, args.amount)
