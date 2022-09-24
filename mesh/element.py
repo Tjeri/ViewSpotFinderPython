@@ -38,9 +38,9 @@ class Element:
         Adds a neighboring element as a plateau neighbor, meaning it has the same height.
         Connects all neighboring elements of the same height.
         """
-        for neighbor in self.plateau_neighbors:
-            if neighbor.id not in (neighbor.id, self.id):
-                neighbor.plateau_neighbors.add(neighbor)
-                neighbor.plateau_neighbors.add(neighbor)
+        for next_neighbor in self.plateau_neighbors:
+            if next_neighbor.id not in (neighbor.id, self.id):
+                next_neighbor.plateau_neighbors.add(neighbor)
+                neighbor.plateau_neighbors.add(next_neighbor)
         self.plateau_neighbors.add(neighbor)
         neighbor.plateau_neighbors.add(self)
