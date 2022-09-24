@@ -1,0 +1,126 @@
+{
+  "elements": [
+    {
+      "id": 0,
+      "nodes": [
+        0,
+        1,
+        12
+      ]
+    },
+    {
+      "id": 1,
+      "nodes": [
+        0,
+        1,
+        5
+      ]
+    },
+    {
+      "id": 2,
+      "nodes": [
+        1,
+        5,
+        4
+      ]
+    },
+    {
+      "id": 3,
+      "nodes": [
+        1,
+        2,
+        4
+      ]
+    },
+    {
+      "id": 4,
+      "nodes": [
+        2,
+        4,
+        3
+      ]
+    },
+    {
+      "id": 5,
+      "nodes": [
+        3,
+        4,
+        11
+      ]
+    },
+    {
+      "id": 6,
+      "nodes": [
+        4,
+        5,
+        11
+      ]
+    },
+    {
+      "id": 7,
+      "nodes": [
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "id": 8,
+      "nodes": [
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "id": 9,
+      "nodes": [
+        9,
+        10,
+        11
+      ]
+    }
+  ],
+  "values": [
+    {
+      "element_id": 0,
+      "value": 0
+    },
+    {
+      "element_id": 1,
+      "value": 1
+    },
+    {
+      "element_id": 2,
+      "value": 2
+    },
+    {
+      "element_id": 3,
+      "value": 3
+    },
+    {
+      "element_id": 4,
+      "value": 4
+    },
+    {
+      "element_id": 5,
+      "value": 5
+    },
+    {
+      "element_id": 6,
+      "value": 6
+    },
+    {
+      "element_id": 7,
+      "value": 7
+    },
+    {
+      "element_id": 8,
+      "value": 8
+    },
+    {
+      "element_id": 9,
+      "value": 9
+    }
+  ]
+}
