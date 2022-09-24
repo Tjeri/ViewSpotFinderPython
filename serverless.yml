@@ -1,0 +1,11 @@
+service: view-spot-finder-python
+
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: python3.8
+
+functions:
+  run:
+    handler: main.aws_find_view_spots
