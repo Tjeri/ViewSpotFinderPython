@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import json
 import sys
-import time
 from pathlib import Path
 from typing import Any
 
@@ -27,6 +26,4 @@ if __name__ == '__main__':
     path = Path(sys.argv[1])
     if not path.exists():
         raise ValueError(f'"{path}" does not exist.')
-    start = time.time()
     read_and_print_view_spots()
-    print(time.time() - start)
